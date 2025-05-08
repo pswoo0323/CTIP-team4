@@ -55,6 +55,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.projectKey=pswoo0323_CICD-team3
+            -Dsonar.projectKey=pswoo0323_CTIP-team4
             -Dsonar.organization=pswoo0323
             -Dsonar.cfamily.compile-commands=build_wrapper_output_directory/compile_commands.json
