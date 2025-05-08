@@ -29,8 +29,8 @@ enable_testing()
 #   - 이를 통해 `ctest` 명령어로 테스트를 실행할 수 있게 됩니다.
    
 # 테스트 실행 파일 추가
-add_executable(run_tests tests/test_main.cpp tests/test.cpp)
-target_link_libraries(run_tests gtest gtest_main test_lib)
+add_executable(run_tests tests/test_main.cpp tests/my_test.cpp)
+target_link_libraries(run_tests gtest gtest_main my_test_lib)
 #  5. `add_executable(run_tests tests/test_main.cpp tests/your_test.cpp)`:
 #   - run_tests라는 이름의 실행 파일을 생성합니다.
 #   - 이 실행 파일은 tests/test_main.cpp와 tests/est.cpp 소스 파일로 구성됩니다.
