@@ -15,7 +15,7 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 enable_testing()
 
 # 테스트 실행 파일 추가
-add_executable(run_tests tests/test_main.cpp tests/my_test.cpp)
+add_executable(run_tests tests/test_main.cpp tests/calculator_test.cpp)
 target_link_libraries(run_tests gtest gtest_main)
 
 # 테스트 실행 규칙 추가
