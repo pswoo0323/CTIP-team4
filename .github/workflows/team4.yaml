@@ -26,16 +26,6 @@ jobs:
       - name: Install dependencies
         run: sudo apt-get update && sudo apt-get install -y cmake lcov
 
-      - name: Configure CMake
-        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
-
-      - name: Build with CMake
-        run: cmake --build build
-
-      - name: Run GoogleTest
-        run: |
-          cd build
-          ctest --output-on-failure
 
       ###############################
       # SonarCloud 분석 (C/C++ 기준)
@@ -45,9 +35,14 @@ jobs:
 
       - name: Run Build Wrapper
         run: |
-          rm -rf build   # 이전 빌드 폴더 삭제
+          rm -rf build   # 이전 빌드 폴더 삭제 (이 부분이 이미 존재)
           cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
           build-wrapper-linux-x86-64 --out-dir build_wrapper_output_directory cmake --build build --config Debug
+
+      - name: Run GoogleTest
+        run: |
+          cd build
+          ctest --output-on-failure
 
       - name: Analyze on SonarCloud
         uses: SonarSource/sonarcloud-github-action@master
@@ -58,15 +53,3 @@ jobs:
             -Dsonar.projectKey=pswoo0323_CTIP-team4
             -Dsonar.organization=pswoo0323
             -Dsonar.cfamily.compile-commands=build_wrapper_output_directory/compile_commands.json
-
-
-      - name: Configure CMake
-        run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=Release
-      
-      - name: Build
-        run: cmake --build ${{github.workspace}}/build --config Release
-      
-      - name: Run Tests
-        run: |
-          cd ${{github.workspace}}/build
-          ctest -C Release --output-on-failure
