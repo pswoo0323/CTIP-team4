@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/pswoo/projects/team4/CTIP-team4/build/cmake_install.cmake",
+		"/Users/pswoo/projects/team4/CTIP-team4/build/external/googletest/cmake_install.cmake",
+		"/Users/pswoo/projects/team4/CTIP-team4/build/external/googletest/googlemock/cmake_install.cmake",
+		"/Users/pswoo/projects/team4/CTIP-team4/build/external/googletest/googletest/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
